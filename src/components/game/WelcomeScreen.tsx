@@ -7,10 +7,10 @@ interface WelcomeScreenProps {
 }
 
 const floatingIcons = [
-  { Icon: Palette, className: "top-[18%] right-[10%] text-primary/30", delay: "0s" },
-  { Icon: Globe, className: "top-[30%] left-[8%] text-accent/40", delay: "-2s" },
-  { Icon: Gamepad2, className: "bottom-[28%] right-[14%] text-accent/35", delay: "-4s" },
-  { Icon: Smartphone, className: "bottom-[20%] left-[12%] text-primary/30", delay: "-1s" },
+  { Icon: Palette, className: "top-[18%] right-[10%] text-primary/30 hidden sm:block", delay: "0s" },
+  { Icon: Globe, className: "top-[30%] left-[8%] text-accent/40 hidden sm:block", delay: "-2s" },
+  { Icon: Gamepad2, className: "bottom-[28%] right-[14%] text-accent/35 hidden sm:block", delay: "-4s" },
+  { Icon: Smartphone, className: "bottom-[20%] left-[12%] text-primary/30 hidden sm:block", delay: "-1s" },
   { Icon: BrainCircuit, className: "top-[55%] right-[5%] hidden lg:block text-primary/25", delay: "-3s" },
 ];
 

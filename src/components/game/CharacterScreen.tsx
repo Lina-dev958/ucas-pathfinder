@@ -22,6 +22,7 @@ export function CharacterScreen({ selected, onSelect, onNext, onBack }: Characte
       <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-5">
         {CHARACTERS.map((character, i) => {
           const isSelected = selected === character.id;
+          const Icon = character.icon;
           return (
             <button
               key={character.id}
@@ -43,15 +44,17 @@ export function CharacterScreen({ selected, onSelect, onNext, onBack }: Characte
               )}
               <span
                 className={cn(
-                  "grid h-16 w-16 place-items-center rounded-2xl text-3xl transition-all duration-200",
-                  isSelected ? "bg-brand-gradient shadow-glow-blue" : "bg-brand-gradient-soft group-hover:scale-105",
+                  "grid h-16 w-16 place-items-center rounded-2xl transition-all duration-200",
+                  isSelected
+                    ? "bg-brand-gradient text-primary-foreground shadow-glow-blue"
+                    : "bg-brand-gradient-soft text-primary group-hover:scale-105",
                 )}
               >
-                <span aria-hidden="true" className={isSelected ? "drop-shadow" : ""}>
-                  {character.emoji}
-                </span>
+                <Icon className="h-8 w-8" />
               </span>
-              <span className="text-base font-extrabold text-foreground sm:text-lg">{character.label}</span>
+              <span className="text-base font-extrabold text-foreground sm:text-lg">
+                {character.label} {character.emoji}
+              </span>
               <span className="text-xs leading-relaxed text-muted-foreground">{character.desc}</span>
             </button>
           );
