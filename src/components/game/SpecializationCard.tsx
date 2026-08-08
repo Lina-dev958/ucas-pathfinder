@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 interface SpecializationCardProps {
   spec: Specialization;
   /** Optional rank badge (1 or 2) shown on results */
-  rank?: number;
+  rank?: number | undefined;
   className?: string;
   style?: React.CSSProperties;
 }
