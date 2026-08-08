@@ -42,9 +42,14 @@ export function computeResult(answers: (number | null)[], characterId: SpecId | 
   const totals = computeScores(answers, characterId);
   const ranked = (Object.entries(totals) as [SpecId, number][]).sort((a, b) => b[1] - a[1]);
 
-  const [topId, topScore] = ranked[0];
-  const [secondId, secondScore] = ranked[1];
+  const first = ranked[0];
+  const second = ranked[1];
+  if (!first || !second) {
+    return { top: SPEC_BY_ID.multimedia, second: null, closeMatch: false };
+  }
 
+  const [topId, topScore] = first;
+  const [secondId, secondScore] = second;
   const closeMatch = topScore - secondScore <= CLOSE_THRESHOLD;
 
   return {
